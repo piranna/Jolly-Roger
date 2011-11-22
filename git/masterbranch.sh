@@ -10,7 +10,7 @@ get_last_revision_pushed_to_mb (){
 get_user_name () {
 	git_name=`git config --global --get user.name`
 	if [[ -z $git_name ]]; then
-		$git_name=`users`
+		$git_name=`id | perl -ne 'm/uid=\d+\((\w+)\).*/; print "$1\n" '`
 	fi
 	echo "$git_name"
 }
