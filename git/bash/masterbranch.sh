@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 VERSION='0.1'
 LISTENERURL='http://localhooks.masterbranch.com/local-hook'
 
@@ -16,7 +16,7 @@ get_user_name () {
 }
 
 test_connection(){
-	ping -c 2 google.com
+	ping -c 2 google.com > /dev/null
 	if [[ 0 != $? ]]; then
 		exit 42
 	fi	
