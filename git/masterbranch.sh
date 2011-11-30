@@ -56,7 +56,7 @@ get_repository () {
 do_log () {
 	get_user_name
 	# Notice than the commit parser just parses this format
-	log_output=`git log --author="$git_name" --pretty=format:'COMMITLINEMARK%n{ "revision": "%H",  "author": "%an <%ae>",  "timestamp": "%ct",  "message": "%s"}' --raw  $last_revision..HEAD`
+	log_output=`git log --author="$git_name" --pretty=format:'COMMITLINEMARK%n{ "revision": "%H",  "author": "%an <%ae>",  "timestamp": "%ct",  "message": "%s%b"}' --raw  $last_revision..HEAD`
 	raw_data=`$MASTERBRANCH_HOME/git/log2json.pl "$log_output" | tr -d "\n"`
 }
 
