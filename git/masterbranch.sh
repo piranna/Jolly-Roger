@@ -31,7 +31,7 @@ print_error () {
 
 get_token () {
 	masterbranch_token=`git config  --global --get masterbranch.token`
-	if [ $masterbranch_token = "" ]
+	if [ -z $masterbranch_token ]
 	then
 		print_error
 	fi	
@@ -39,7 +39,7 @@ get_token () {
 
 get_email () {
 	masterbranch_email=`git config  --global --get masterbranch.email`
-	if [ $masterbranch_email = "" ]
+	if [ -z $masterbranch_email ]
 	then
 		print_error
 	fi			
@@ -47,7 +47,7 @@ get_email () {
 
 get_repository () {
 	uri=`git config --local --get remote.origin.url`
-	if [ $uri = "" ]
+	if [ -z $uri ]
 	then
 		uri=${PWD##*/}
 	fi
