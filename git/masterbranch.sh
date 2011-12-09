@@ -15,7 +15,7 @@ get_user_name () {
 }
 
 test_connection(){
-	ping -c 2 google.com > /dev/null
+	ping -c 2 ${LISTENERURL} > /dev/null
 	if [ 0 != $? ]
 	then
 		exit 42
